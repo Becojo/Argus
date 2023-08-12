@@ -12,6 +12,7 @@ import DataFlow::PathGraph
 
 DataFlow::Node mainDangerCalls() {
     result = DataFlow::globalVarRef("eval").getACall().getArgument(0) or
+    result = DataFlow::globalVarRef("Function").getACall().getLastArgument() or
     result = DataFlow::globalVarRef("setTimeout").getACall().getArgument(0) or
     result = DataFlow::globalVarRef("setInterval").getACall().getArgument(0) or
     result = DataFlow::globalVarRef("unserialize").getACall().getArgument(0)
